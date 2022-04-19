@@ -1,0 +1,5 @@
+  fetch_new_listing_job:
+    every: ['24h', first_in: '0s']
+    class: FetchNewListingJob
+    queue: default
+    description: "This job fetches new listings and upload it in hubspot"
