@@ -16,8 +16,6 @@ module Hubspot
     end
 
     def self.post(endpoint, params)
-      ConfigHubspot.call
-
       result = RestClient.post "#{BASE_URL}?hapikey=#{HAPIKEY}", params.to_json, { "content_type": "application/json" }
 
       { code: result.code, status: "Success", data: JSON.parse(result.body) }
