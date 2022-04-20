@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe FetchNewListingJob, type: :job do
+RSpec.describe FetchNewListingJob, :vcr do
   let(:ef_reponse) {}
-  describe "by running scheduled job blabla", :vcr, js: true do
+  describe "by running scheduled job blabla" do
     it "fetches for number of pages" do
       VCR.use_cassette('FetchNewListingJob/fetches_for_number_of_pages', :record => :new_episodes) do
         stub_request(:get, "https://api.empireflippers.com/api/v1/listings/list?limit=20&listing_status=For%20Sale&page=1")
